@@ -1,0 +1,247 @@
+{
+  "version": "2.0.0",
+  "darkMode": true,
+  "gridEnabling": false,
+  "currentViewName": null,
+  "defaultView": {
+    "detailLevel": "All",
+    "tablePositions": [
+      {
+        "name": "films",
+        "schemaName": "public",
+        "x": 16,
+        "y": 16
+      },
+      {
+        "name": "seances",
+        "schemaName": "public",
+        "x": 632,
+        "y": 16
+      },
+      {
+        "name": "distributors",
+        "schemaName": "public",
+        "x": 16,
+        "y": 920
+      },
+      {
+        "name": "distribution_contracts",
+        "schemaName": "public",
+        "x": 632,
+        "y": 680
+      },
+      {
+        "name": "clients",
+        "schemaName": "public",
+        "x": 16,
+        "y": 648
+      },
+      {
+        "name": "subscriptions",
+        "schemaName": "public",
+        "x": 632,
+        "y": 344
+      },
+      {
+        "name": "reservations",
+        "schemaName": "public",
+        "x": 1128,
+        "y": 16
+      },
+      {
+        "name": "rooms",
+        "schemaName": "public",
+        "x": 16,
+        "y": 440
+      },
+      {
+        "name": "royalty_tiers",
+        "schemaName": "public",
+        "x": 1128,
+        "y": 376
+      },
+      {
+        "name": "weekly_statements",
+        "schemaName": "public",
+        "x": 1128,
+        "y": 584
+      },
+      {
+        "name": "invoices",
+        "schemaName": "public",
+        "x": 1640,
+        "y": 16
+      }
+    ],
+    "tableGroupCollapseStates": [],
+    "stickyNoteLayouts": [],
+    "referencePaths": [
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "films",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "film_id"
+        ],
+        "secondTableName": "distribution_contracts",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "films",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "film_id"
+        ],
+        "secondTableName": "seances",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "rooms",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "room_id"
+        ],
+        "secondTableName": "seances",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "clients",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "client_id"
+        ],
+        "secondTableName": "subscriptions",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "seances",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "seance_id"
+        ],
+        "secondTableName": "reservations",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "clients",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "client_id"
+        ],
+        "secondTableName": "reservations",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "distributors",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "distributor_id"
+        ],
+        "secondTableName": "distribution_contracts",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "distribution_contracts",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "contract_id"
+        ],
+        "secondTableName": "weekly_statements",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "distributors",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "distributor_id"
+        ],
+        "secondTableName": "invoices",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "weekly_statements",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "statement_id"
+        ],
+        "secondTableName": "invoices",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "distribution_contracts",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "contract_id"
+        ],
+        "secondTableName": "royalty_tiers",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      }
+    ]
+  },
+  "views": {}
+}
