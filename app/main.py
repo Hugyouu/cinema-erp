@@ -1,4 +1,3 @@
-from sys import api_version
 from fastapi import FastAPI
 
 API_VERSION = "0.1.0"
