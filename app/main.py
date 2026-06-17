@@ -1,6 +1,17 @@
 from fastapi import FastAPI
 
-from app.routers import clients, films, reservations, rooms, seances, tickets
+from app.routers import (
+    clients,
+    distribution_contracts,
+    distributors,
+    films,
+    invoices,
+    reservations,
+    rooms,
+    seances,
+    tickets,
+    weekly_statements,
+)
 
 API_VERSION = "0.1.0"
 
@@ -16,6 +27,10 @@ app.include_router(seances.router)
 app.include_router(clients.router)
 app.include_router(reservations.router)
 app.include_router(tickets.router)
+app.include_router(distributors.router)
+app.include_router(distribution_contracts.router)
+app.include_router(weekly_statements.router)
+app.include_router(invoices.router)
 
 
 @app.get("/")
