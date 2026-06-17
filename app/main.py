@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from app.routers import films, rooms, seances
+
 API_VERSION = "0.1.0"
 
 app = FastAPI(
@@ -7,6 +9,10 @@ app = FastAPI(
     description="The API REST to manage your cinema !",
     version=API_VERSION
 )
+
+app.include_router(films.router)
+app.include_router(rooms.router)
+app.include_router(seances.router)
 
 
 @app.get("/")

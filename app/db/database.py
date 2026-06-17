@@ -23,3 +23,13 @@ SessionLocal = sessionmaker(bind=engine)
 
 class Base(DeclarativeBase):
     pass
+
+
+def get_db():
+    db = SessionLocal()
+    try:
+        # yield met la fonction « en pause » et donne la session db à celui qui l'utilise. 
+        # La fonction ne se termine pas à ce moment-là : elle reste suspendue à la ligne du yield.
+        yield db
+    finally:
+        db.close()
