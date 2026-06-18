@@ -19,7 +19,6 @@ class SubscriptionRead(BaseModel):
 
 
 class SubscriptionCreate(BaseModel):
-    client_id: int
     plan: SubPlan
     price_monthly: int | None = None
     start_date: date | None = None
