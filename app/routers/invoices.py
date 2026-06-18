@@ -1,3 +1,5 @@
+from datetime import datetime
+import uuid
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
@@ -26,7 +28,10 @@ def create_invoice(invoice: InvoiceCreate, db: Session = Depends(get_db)):
     existing = db.query(Invoice).filter(Invoice.invoice_number == invoice.invoice_number).first()
     if existing:
         raise HTTPException(status_code=409, detail="Invoice number already exists")
-    new_invoice = Invoice(**invoice.model_dump())
+    new_invoice = Invoice(
+        **invoice.model_dump(),
+        invoice_number=f"FAC-{datetime.now().year}-{str(uuid.uuid4())[:5].upper()}"
+    )
     db.add(new_invoice)
     db.commit()
     db.refresh(new_invoice)
