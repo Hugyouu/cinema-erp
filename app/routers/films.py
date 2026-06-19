@@ -1,9 +1,16 @@
 from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app.db.database import get_db
-from app.models import Film
+from app.models import Film, FilmClassification
 from app.schemas.film import FilmCreate, FilmRead, FilmUpdate
+from app.services.tmdb import fetch_film_data
+
+
+class TMDBImport(BaseModel):
+    id_distributor: int
+    classification: FilmClassification = FilmClassification.TOUS_PUBLICS
 
 router = APIRouter(prefix="/films", tags=["Films"])
 
@@ -49,3 +56,17 @@ def delete_film(film_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Film not found")
     db.delete(film)
     db.commit()
+
+
+@router.post("/import/tmdb/{tmdb_id}", response_model=FilmRead, status_code=201)
+def import_from_tmdb(tmdb_id: int, payload: TMDBImport, db: Session = Depends(get_db)):
+    film_data = fetch_film_data(tmdb_id)
+    new_film = Film(
+        **film_data,
+        id_distributor=payload.id_distributor,
+        classification=payload.classification,
+    )
+    db.add(new_film)
+    db.commit()
+    db.refresh(new_film)
+    return new_film
