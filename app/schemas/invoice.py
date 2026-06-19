@@ -20,7 +20,6 @@ class InvoiceRead(BaseModel):
 
 
 class InvoiceCreate(BaseModel):
-    invoice_number: str
     distributor_id: int
     statement_id: int
     amount_ht: float | None = None
